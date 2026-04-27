@@ -1,13 +1,15 @@
 #include "math.h"
 
+// Exponential Function (X^n)
 double power(double base, double exp) {
     if (base == 0) return 0;
     if (exp == 0) return 1;
 
-    double res2 = 0;
     double res1 = 1;
-    double normalnum = (double)((long)exp);
-    double decimal = exp - normalnum;
+    double res2 = 1;
+    double newexp = absolute(exp);
+    double normalnum = (double)((long)newexp);
+    double decimal = newexp - normalnum;
 
     // Without Decimal Calculation
     if(normalnum!=0.0){
@@ -31,5 +33,9 @@ double power(double base, double exp) {
             guess = res2;
         }
     }
-    return res2*res1;
+    return (exp > 0) ? res2*res1 : 1/(res2*res1);
+}
+// Absolute Value Function (|x|)
+double absolute(double x){
+    return (x<0) ? x*=-1 : x;
 }

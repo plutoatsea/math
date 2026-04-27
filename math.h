@@ -13,4 +13,5 @@
     //FUNCTIONS
 
     double power(double base, double exp);
+    double absolute(double x);
 #endif
